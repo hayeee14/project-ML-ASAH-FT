@@ -12,7 +12,7 @@ from transformers import pipeline
 from PIL import Image
 
 # --- KONFIGURASI SISTEM ---
-# Memastikan binary FFmpeg tersedia untuk lingkungan Windows
+# Memastikan library FFmpeg tersedia 
 try:
     ffmpeg_src = imageio_ffmpeg.get_ffmpeg_exe()
     ffmpeg_dst = os.path.join(os.getcwd(), "ffmpeg.exe")
@@ -21,7 +21,7 @@ try:
 except Exception:
     pass 
 
-st.set_page_config(page_title="Interview Assessment System", layout="wide")
+st.set_page_config(page_title="Sistem Penilaian Interview AI", layout="wide")
 
 # --- DATA: POSISI PEKERJAAN & PERTANYAAN ---
 
@@ -34,7 +34,7 @@ JOB_ROLES = {
     "AI Architect": [17, 18, 19, 20]
 }
 
-# Database Pertanyaan (Total 20)
+# Database Pertanyaan 
 QUESTION_DB = {
     # ML Engineer
     1: "Describe a complex ML model you built and how you ensured its accuracy.",
@@ -67,48 +67,48 @@ QUESTION_DB = {
     20: "Describe a high-level architecture for a real-time recommendation system."
 }
 
-# Database Kata Kunci untuk Logika Penilaian (Diperluas)
-# Semakin banyak kata kunci yang disebut, semakin tinggi skor kandidat.
+# --- DATABASE KATA KUNCI (DIPERLUAS & DIPERBANYAK) ---
+# Semakin banyak kata kunci teknis yang disebut kandidat, semakin tinggi skornya.
 TOPIC_KEYWORDS = {
-    1: ["model", "accuracy", "tuning", "optimization", "hyperparameter", "loss", "metric", "validation", "auc", "roc", "precision", "recall", "deploy", "pipeline"],
-    2: ["overfitting", "regularization", "dropout", "l1", "l2", "early", "stopping", "data", "augmentation", "complexity", "generalization", "noise", "pruning"],
-    3: ["imbalanced", "smote", "resampling", "oversampling", "undersampling", "class", "weight", "f1", "precision", "minority", "majority", "stratified", "synthetic"],
-    4: ["gradient", "descent", "batch", "stochastic", "update", "weight", "convergence", "learning", "rate", "optimizer", "momentum", "adam", "cost", "function"],
+    1: ["model", "accuracy", "tuning", "optimization", "hyperparameter", "loss", "metric", "validation", "auc", "roc", "precision", "recall", "deploy", "pipeline", "baseline", "evaluation", "confusion matrix", "cross-validation", "testing", "monitoring"],
+    2: ["overfitting", "regularization", "dropout", "l1", "l2", "early", "stopping", "data", "augmentation", "complexity", "generalization", "noise", "pruning", "variance", "training data", "bias", "ensemble", "simplify", "penalty"],
+    3: ["imbalanced", "smote", "resampling", "oversampling", "undersampling", "class", "weight", "f1", "precision", "minority", "majority", "stratified", "synthetic", "adayan", "cost-sensitive", "recall", "anomaly", "skewed", "distribution"],
+    4: ["gradient", "descent", "batch", "stochastic", "update", "weight", "convergence", "learning", "rate", "optimizer", "momentum", "adam", "cost", "function", "epoch", "iteration", "minima", "backpropagation", "parameter"],
     
-    5: ["clean", "missing", "value", "imputation", "outlier", "normalize", "standardize", "pandas", "null", "duplicate", "scaling", "encoding", "categorical", "transform"],
-    6: ["supervised", "unsupervised", "label", "clustering", "classification", "regression", "k-means", "target", "prediction", "discovery", "dimension", "pca"],
-    7: ["feature", "selection", "importance", "pca", "correlation", "dimensional", "reduction", "recursive", "lasso", "ridge", "filter", "wrapper", "information"],
-    8: ["bias", "variance", "tradeoff", "underfitting", "overfitting", "error", "complexity", "model", "flexible", "irreducible", "total", "generalize"],
+    5: ["clean", "missing", "value", "imputation", "outlier", "normalize", "standardize", "pandas", "null", "duplicate", "scaling", "encoding", "categorical", "transform", "preprocessing", "quality", "formatting", "binning", "wrangling", "etl"],
+    6: ["supervised", "unsupervised", "label", "clustering", "classification", "regression", "k-means", "target", "prediction", "discovery", "dimension", "pca", "labeled", "unlabeled", "training", "association", "pattern", "input", "output"],
+    7: ["feature", "selection", "importance", "pca", "correlation", "dimensional", "reduction", "recursive", "lasso", "ridge", "filter", "wrapper", "information", "gain", "mutual", "variance", "heatmap", "redundant", "engineering"],
+    8: ["bias", "variance", "tradeoff", "underfitting", "overfitting", "error", "complexity", "model", "flexible", "irreducible", "total", "generalize", "training", "test", "balance", "sweet spot", "predictive", "performance"],
     
-    9: ["cnn", "convolution", "layer", "filter", "kernel", "feature", "map", "relu", "activation", "stride", "padding", "flatten", "dense", "softmax"],
-    10: ["pooling", "max", "average", "dimension", "reduction", "spatial", "downsampling", "parameter", "invariance", "translation", "computation", "summary"],
-    11: ["transfer", "learning", "pretrained", "imagenet", "vgg", "resnet", "finetuning", "weights", "freeze", "domain", "adaptation", "source", "target"],
-    12: ["object", "detection", "yolo", "rcnn", "bounding", "box", "anchor", "intersection", "iou", "confidence", "suppression", "region", "proposal", "grid"],
+    9: ["cnn", "convolution", "layer", "filter", "kernel", "feature", "map", "relu", "activation", "stride", "padding", "flatten", "dense", "softmax", "visual", "image", "pixel", "architecture", "deep", "learning"],
+    10: ["pooling", "max", "average", "dimension", "reduction", "spatial", "downsampling", "parameter", "invariance", "translation", "computation", "summary", "feature", "map", "size", "compress", "information", "receptive", "field"],
+    11: ["transfer", "learning", "pretrained", "imagenet", "vgg", "resnet", "finetuning", "weights", "freeze", "domain", "adaptation", "source", "target", "efficientnet", "mobilenet", "feature", "extraction", "saving", "time"],
+    12: ["object", "detection", "yolo", "rcnn", "bounding", "box", "anchor", "intersection", "iou", "confidence", "suppression", "region", "proposal", "grid", "localization", "classification", "fast-rcnn", "mask", "ssd"],
     
-    13: ["token", "embedding", "vector", "word2vec", "glove", "representation", "vocabulary", "corpus", "semantic", "similarity", "cosine", "context", "n-gram", "stemming"],
-    14: ["transformer", "attention", "mechanism", "encoder", "decoder", "bert", "gpt", "self-attention", "multi-head", "positional", "encoding", "scale", "dot-product"],
-    15: ["rnn", "lstm", "gru", "sequence", "temporal", "memory", "vanishing", "gradient", "gate", "forget", "dependency", "long-term", "short-term", "state"],
-    16: ["ner", "entity", "recognition", "tagging", "extraction", "information", "text", "label", "person", "organization", "location", "chunking", "bio"],
+    13: ["token", "embedding", "vector", "word2vec", "glove", "representation", "vocabulary", "corpus", "semantic", "similarity", "cosine", "context", "n-gram", "stemming", "lemmatization", "split", "preprocessing", "dense", "dimension", "text"],
+    14: ["transformer", "attention", "mechanism", "encoder", "decoder", "bert", "gpt", "self-attention", "multi-head", "positional", "encoding", "scale", "dot-product", "sequence", "parallel", "training", "context", "nlp", "model"],
+    15: ["rnn", "lstm", "gru", "sequence", "temporal", "memory", "vanishing", "gradient", "gate", "forget", "dependency", "long-term", "short-term", "state", "recurrent", "network", "input", "output", "hidden"],
+    16: ["ner", "entity", "recognition", "tagging", "extraction", "information", "text", "label", "person", "organization", "location", "chunking", "bio", "token", "sequence", "model", "spacy", "nltk", "crf"],
     
-    17: ["mlops", "pipeline", "ci/cd", "deployment", "monitoring", "docker", "kubernetes", "model", "registry", "versioning", "drift", "serving", "api", "automated"],
-    18: ["cloud", "edge", "latency", "bandwidth", "cost", "privacy", "device", "resource", "server", "connectivity", "real-time", "power", "consumption", "security"],
-    19: ["privacy", "security", "encryption", "gdpr", "compliance", "anonymization", "access", "control", "federated", "learning", "differential", "secure", "multiparty"],
-    20: ["recommendation", "system", "real-time", "collaborative", "filtering", "latency", "streaming", "kafka", "matrix", "factorization", "content-based", "hybrid", "user", "item"]
+    17: ["mlops", "pipeline", "ci/cd", "deployment", "monitoring", "docker", "kubernetes", "model", "registry", "versioning", "drift", "serving", "api", "automated", "workflow", "production", "scale", "lifecycle", "infrastructure"],
+    18: ["cloud", "edge", "latency", "bandwidth", "cost", "privacy", "device", "resource", "server", "connectivity", "real-time", "power", "consumption", "security", "iot", "processing", "centralized", "decentralized"],
+    19: ["privacy", "security", "encryption", "gdpr", "compliance", "anonymization", "access", "control", "federated", "learning", "differential", "secure", "multiparty", "data", "protection", "leakage", "attack", "robustness"],
+    20: ["recommendation", "system", "real-time", "collaborative", "filtering", "latency", "streaming", "kafka", "matrix", "factorization", "content-based", "hybrid", "user", "item", "ranking", "personalization", "cold-start", "feedback"]
 }
 
 # --- INISIALISASI MODEL ---
 @st.cache_resource
 def load_models():
     """
-    Menginisialisasi model Whisper (STT) dan Flan-T5 (LLM).
-    Menggunakan caching agar model tidak dimuat ulang setiap kali aplikasi direfresh.
+    Memuat model Whisper (STT) dan Flan-T5 (LLM).
+    Menggunakan caching untuk performa.
     """
     device = "cuda" if torch.cuda.is_available() else "cpu"
     
-    # Whisper untuk Transkripsi Suara
+    # Whisper untuk Transkripsi
     whisper_model = whisper.load_model("base", device=device)
     
-    # Flan-T5 untuk Generasi Penalaran (Reasoning)
+    # Flan-T5 untuk Generasi Alasan Penilaian
     llm_pipeline = pipeline(
         "text2text-generation",
         model="google/flan-t5-base", 
@@ -128,8 +128,7 @@ except Exception as e:
 
 def convert_video_to_audio(video_path, audio_path):
     """
-    Mengekstrak audio dari file video menggunakan subprocess FFmpeg.
-    Menghasilkan file .wav 16kHz mono.
+    Ekstraksi audio dari video menggunakan subprocess FFmpeg.
     """
     try:
         ffmpeg_cmd = "ffmpeg.exe" if os.path.exists("ffmpeg.exe") else "ffmpeg"
@@ -139,7 +138,7 @@ def convert_video_to_audio(video_path, audio_path):
             audio_path, "-y"
         ]
         
-        # Menyembunyikan jendela terminal pada Windows
+        # Sembunyikan window terminal di Windows
         startupinfo = None
         if os.name == 'nt':
             startupinfo = subprocess.STARTUPINFO()
@@ -152,8 +151,7 @@ def convert_video_to_audio(video_path, audio_path):
 
 def transcribe(audio_path):
     """
-    Melakukan transkripsi file audio menjadi teks menggunakan Whisper.
-    Menggunakan prompt awal untuk meningkatkan akurasi istilah teknis.
+    Transkripsi audio ke teks menggunakan Whisper.
     """
     technical_prompt = "Transcribe English technical interview. Keywords: Machine Learning, Data Science, AI, Engineering."
     result = model_stt.transcribe(audio_path, fp16=False, language="en", initial_prompt=technical_prompt)
@@ -161,27 +159,26 @@ def transcribe(audio_path):
 
 def assess_answer(text, question_id):
     """
-    Menilai jawaban berdasarkan kepadatan kata kunci (Skoring) dan LLM (Penalaran).
-    Logika Penilaian:
-    - 0: Jawaban tidak valid / terlalu pendek
-    - 1: Tidak Relevan (0 kata kunci ditemukan)
-    - 2: Dasar (1-2 kata kunci ditemukan)
-    - 3: Baik (3-5 kata kunci ditemukan)
-    - 4: Sangat Baik (>5 kata kunci ditemukan)
+    Menilai jawaban berdasarkan jumlah keyword (Skor) dan LLM (Alasan).
+    Logika Skor:
+    - 0: Audio rusak / teks < 10 karakter
+    - 1: 0 keyword (Salah Topik)
+    - 2: 1-2 keyword (Dasar)
+    - 3: 3-5 keyword (Baik)
+    - 4: >5 keyword (Sangat Baik)
     """
-    # 1. Validasi Panjang Teks
+    # Validasi
     if len(text) < 10: 
         return 0, "No audible response detected or response too short."
     
-    # 2. Analisis Kata Kunci
+    # Hitung Keyword
     target_keywords = TOPIC_KEYWORDS.get(question_id, [])
     text_lower = text.lower()
     
-    # Mencari irisan antara kata kunci target dan teks transkrip
     found_keywords = [k for k in target_keywords if k in text_lower]
-    hit_count = len(set(found_keywords)) # Menghitung kata kunci unik
+    hit_count = len(set(found_keywords)) 
     
-    # 3. Penentuan Skor
+    # Tentukan Skor
     if hit_count == 0:
         score = 1
         reason_base = "The answer does not contain relevant technical keywords for this topic."
@@ -195,7 +192,7 @@ def assess_answer(text, question_id):
         score = 4
         reason_base = f"Comprehensive and detailed response. Extensive vocabulary used: {', '.join(found_keywords)}."
 
-    # 4. Memperhalus Alasan menggunakan LLM
+    # Perhalus reason dengan LLM
     prompt = f"""
     Refine this assessment reason to sound professional.
     Original Reason: "{reason_base}"
@@ -210,51 +207,45 @@ def assess_answer(text, question_id):
 
     return score, reason_ai
 
-# --- ANTARMUKA PENGGUNA (UI) ---
-
-# Sidebar: Profil Kandidat
+# --- INTERFACE PENGGUNA (UI) ---
 with st.sidebar:
-    st.header("Candidate Profile")
-    cand_name = st.text_input("Full Name", "Hafiz Putra Mahesta")
-    cand_email = st.text_input("Email", "hafiz@dicoding.com")
+    st.header("Profil Kandidat")
+    cand_name = st.text_input("Nama Lengkap", " ")
+    cand_email = st.text_input("Email", " ")
     
-    # Pilihan Posisi Pekerjaan
-    selected_role = st.selectbox("Position Applied", list(JOB_ROLES.keys()))
+    selected_role = st.selectbox("Posisi yang Dilamar", list(JOB_ROLES.keys()))
     
-    uploaded_photo = st.file_uploader("Profile Picture", type=['jpg','png'])
+    uploaded_photo = st.file_uploader("Foto Profil", type=['jpg','png'])
     photo_url = "https://path/to/default.png"
-    
     if uploaded_photo:
         image = Image.open(uploaded_photo)
         st.image(image, width=150)
-        photo_url = f"uploads/{uploaded_photo.name}"
+        photo_url = f"{uploaded_photo.name}"
     
     st.divider()
-    st.caption("System Version: 1.0.0 (Localhost)")
+    st.caption("Versi Sistem: 1.0.0 (Localhost)")
 
-# Dashboard Utama
-st.title("AI Interview Assessment System")
-st.markdown(f"**Target Position:** {selected_role}")
+st.title("Sistem Penilaian Interview AI")
+st.markdown(f"**Target Posisi:** {selected_role}")
 
 col_vid, col_q = st.columns([1, 1])
 
 with col_q:
-    # Filter pertanyaan berdasarkan peran yang dipilih
     role_questions = JOB_ROLES[selected_role]
     selected_q_id = st.selectbox(
-        "Select Interview Question:", 
+        "Pilih Pertanyaan Interview:", 
         role_questions, 
         format_func=lambda x: f"Q{x}: {QUESTION_DB[x]}"
     )
 
 with col_vid:
-    uploaded_video = st.file_uploader("Upload Response Video (.mp4)", type=["mp4", "mov", "avi", "webm"])
+    uploaded_video = st.file_uploader("Unggah Video Jawaban (.mp4)", type=["mp4", "mov", "avi", "webm"])
 
 if uploaded_video is not None:
     st.video(uploaded_video)
     
-    if st.button("Analyze Response", type="primary"):
-        # Setup Direktori Sementara
+    if st.button("Analisis Jawaban", type="primary"):
+        # Setup Folder Temp
         os.makedirs("temp", exist_ok=True)
         video_path = os.path.join("temp", uploaded_video.name)
         audio_path = video_path.replace(".mp4", ".wav").replace(".webm", ".wav")
@@ -262,63 +253,109 @@ if uploaded_video is not None:
         with open(video_path, "wb") as f:
             f.write(uploaded_video.getbuffer())
             
-        # Pipeline Pemrosesan
-        with st.status("Processing...", expanded=True):
-            st.write("Extracting audio stream...")
+        with st.status("Sedang Memproses...", expanded=True):
+            st.write("Mengekstrak audio...")
             if convert_video_to_audio(video_path, audio_path):
                 
-                st.write("Transcribing audio content...")
+                st.write("Transkripsi suara...")
                 transcript_text = transcribe(audio_path)
                 
-                st.write("Evaluating technical relevance...")
+                st.write("Melakukan penilaian teknis...")
                 score, reason = assess_answer(transcript_text, selected_q_id)
                 
                 st.divider()
                 
-                # Menampilkan Hasil
+                # Menampilkan Hasil di Layar
                 c1, c2 = st.columns([2, 1])
                 with c1:
-                    st.info(f"**Transcription:**\n\n{transcript_text}")
+                    st.info(f"**Transkripsi:**\n\n{transcript_text}")
                 with c2:
-                    if score == 4: st.success(f"**Score: {score}/4** (Excellent)")
-                    elif score == 3: st.info(f"**Score: {score}/4** (Good)")
-                    elif score == 2: st.warning(f"**Score: {score}/4** (Basic)")
-                    else: st.error(f"**Score: {score}/4** (Irrelevant)")
-                    st.write(f"**Assessment:**\n{reason}")
+                    if score == 4: st.success(f"**Skor: {score}/4** (Sangat Baik)")
+                    elif score == 3: st.info(f"**Skor: {score}/4** (Baik)")
+                    elif score == 2: st.warning(f"**Skor: {score}/4** (Cukup)")
+                    else: st.error(f"**Skor: {score}/4** (Tidak Relevan)")
+                    st.write(f"**Analisis:**\n{reason}")
                 
-                # Pembuatan Payload JSON
+                # --- MEMBUAT OUTPUT JSON ---
+                # Menghitung nilai proporsional untuk simulasi
+                interview_percentage = (score / 4) * 100
+                total_final_score = (100 + interview_percentage) / 2 # Asumsi Project Score 100
+                
                 final_json = {
                     "success": True,
                     "data": {
+                        "id": 131, # ID Mockup
                         "candidate": {
                             "name": cand_name, 
                             "email": cand_email,
-                            "role": selected_role,
                             "photoUrl": photo_url
                         },
-                        "assessorProfile": {"id": 47, "name": "AI System"},
-                        "reviewedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                        "decision": "PASSED" if score >= 3 else "REVIEW NEEDED",
-                        "scoresOverview": {"total": (score/4)*100},
-                        "reviewChecklistResult": {
-                            "project": [],
-                            "interviews": {
-                                "scores": [{
-                                    "id": selected_q_id, 
-                                    "score": score, 
-                                    "reason": reason, 
-                                    "transcript_preview": transcript_text
-                                }]
+                        "certification": {
+                            "abbreviatedType": "DCML",
+                            "normalType": "DEV_CERTIFICATION_MACHINE_LEARNING",
+                            "submittedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                            "status": "FINISHED",
+                            "projectType": "dcml_package_1",
+                            "interviewQuestionSets": 1,
+                            "examScore": total_final_score,
+                            "autoGraderProjectScore": 100,
+                            "downloadProjectUrl": "https://github.com/hayeee14/project-ML-ASAH-FT",
+                            "isReviewedByMe": False,
+                            "isAlreadyReviewedByMe": False,
+                            "assess": {
+                                "project": False,
+                                "interviews": True
                             }
-                        }
+                        },
+                        "reviewChecklists": {
+                            "project": [],
+                            "interviews": [
+                                {
+                                    "positionId": selected_q_id,
+                                    "question": QUESTION_DB[selected_q_id],
+                                    "isVideoExist": True,
+                                    "recordedVideoUrl": "https://drive.google.com/file/d/mock-url-video/view" #hanya link dummy
+                                }
+                            ]
+                        },
+                        "pastReviews": [
+                            {
+                                "assessorProfile": {
+                                    "id": 47, 
+                                    "name": "AI Assessor System", 
+                                    "photoUrl": "xxx"
+                                },
+                                "decision": "PASSED" if score >= 3 else "REVIEW NEEDED",
+                                "reviewedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                                "scoresOverview": {
+                                    "project": 100,
+                                    "interview": round(interview_percentage, 1),
+                                    "total": round(total_final_score, 1)
+                                },
+                                "reviewChecklistResult": {
+                                    "project": [],
+                                    "interviews": {
+                                        "minScore": 0,
+                                        "maxScore": 4,
+                                        "scores": [
+                                            {
+                                                "id": selected_q_id,
+                                                "score": score
+                                            }
+                                        ]
+                                    }
+                                },
+                                "notes": reason # Menggunakan analisis AI 
+                            }
+                        ]
                     }
                 }
                 
                 st.download_button(
-                    label="Export JSON Report",
+                    label="Unduh Laporan JSON",
                     data=json.dumps(final_json, indent=2),
                     file_name=f"Assessment_{cand_name.replace(' ', '_')}.json",
                     mime="application/json"
                 )
             else:
-                st.error("Error processing video file. Please check the format.")
+                st.error("Gagal memproses file video. Cek formatnya.")

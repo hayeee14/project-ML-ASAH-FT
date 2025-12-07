@@ -65,7 +65,7 @@ pip install -r requirements.txt
 
 This application is optimized for standard laptops using **Base Models**. However, performance varies based on hardware specifications.
 
-| Component | Minimum (Default 'Base' Models) | Recommended (For 'Large' Models) |
+| Component | Minimum (Default 'base' Models) | Recommended (For 'small/Large' Models) |
 | :--- | :--- | :--- |
 | **OS** | Windows 10/11, macOS, Linux | Windows 10/11, Linux (Ubuntu) |
 | **RAM** | 8 GB | **16 GB or higher** |
@@ -74,12 +74,12 @@ This application is optimized for standard laptops using **Base Models**. Howeve
 | **Storage** | 2 GB free space | 10 GB free space |
 
 > **Note on Performance:**
-> By default, the `app.py` is configured to use **`whisper-base`** and **`flan-t5-base`** to ensure smooth performance on most laptops (CPU-only).
+> By default, the `app.py` is configured to use **`whisper-small`** and **`flan-t5-large`** to ensure smooth performance on most laptops (CPU-only).
 >
 > If you wish to use **Large Models** for higher accuracy:
 > 1. Ensure you have a dedicated NVIDIA GPU (CUDA enabled).
 > 2. Open `app.py` and change `model="google/flan-t5-base"` to `model="google/flan-t5-large"`.
-> 3. Change `whisper.load_model("base")` to `whisper.load_model("large")`.
+> 3. Change `whisper.load_model("base")` to `whisper.load_model("small")`.
 
 # How to Run
 1. Start the application using Streamlit:

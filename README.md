@@ -76,14 +76,14 @@ streamlit run app.py
 5. Download the JSON Report for the result.
 
 # Project Structure
-
+```
 Capstone-Interview-AI/
 ├── app.py                      # Main Application Logic (Streamlit)
 ├── requirements.txt            # Dependency List
 ├── A25_CS358_Notebook.ipynb    # Research Notebook (Accuracy/WER Validation)
 ├── final_assessment_result.json # Sample Output
 └── README.md                   # Documentation
-
+```
 # Assessment Logic (How it Works)
 1. The system uses a Hybrid Evaluation Method to ensure fairness and accuracy:
 Relevance Guardrail (Python): The system extracts technical keywords relevant to the specific question chosen.

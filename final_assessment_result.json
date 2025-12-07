@@ -1,0 +1,299 @@
+{
+  "success": true,
+  "data": {
+    "id": 131,
+    "candidate": {
+      "name": "Hafiz Putra Mahesta",
+      "email": "hafiz123@gmail.com",
+      "photoUrl": "https://drive.google.com/file/d/1AGt7RzxoY21DlqTLBqrB74DFvSiTEDmL/view?usp=sharing"
+    },
+    "certification": {
+      "abbreviatedType": "DCML",
+      "normalType": "DEV_CERTIFICATION_MACHINE_LEARNING",
+      "submittedAt": "2025-12-07 08:15:14",
+      "status": "FINISHED",
+      "projectType": "dcml_package_1",
+      "interviewQuestionSets": 1,
+      "examScore": 87.5,
+      "autoGraderProjectScore": 100,
+      "downloadProjectUrl": "https://github.com/hayeee14/project-ML-ASAH-FT",
+      "isReviewedByMe": false,
+      "isAlreadyReviewedByMe": false,
+      "assess": {
+        "project": false,
+        "interviews": true
+      }
+    },
+    "reviewChecklists": {
+      "project": [],
+      "interviews": [
+        {
+          "positionId": 1,
+          "question": "Share specific challenges you faced in certification and how you overcame them.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_1.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 2,
+          "question": "Describe your experience with transfer learning in TensorFlow.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_2.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 3,
+          "question": "Describe a complex TensorFlow model you built and how you ensured accuracy.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_3.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 4,
+          "question": "Explain how to implement dropout and its effect on training.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_4.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 5,
+          "question": "Describe the process of building a CNN for image classification.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_5.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 6,
+          "question": "Tell us about yourself and why you want to become an AI Engineer.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_6.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 7,
+          "question": "What AI/ML tools or skills have you learned so far?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_7.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 8,
+          "question": "Explain what Machine Learning is in simple words.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_8.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 9,
+          "question": "How do you solve problems when your model does not work well?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_9.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 10,
+          "question": "What personal qualities do you have to support you as an AI Engineer?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_10.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 11,
+          "question": "Why did you choose architecture as your field?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_11.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 12,
+          "question": "What architectural software are you familiar with?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_12.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 13,
+          "question": "How do you approach designing a building or space?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_13.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 14,
+          "question": "How do you handle design criticism or multiple revisions?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_14.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 15,
+          "question": "Why should we select you for this position?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_15.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 16,
+          "question": "Walk me through your resume and tell me about yourself.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_16.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 17,
+          "question": "Tell me about the most challenging technical problem you've faced.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_17.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 18,
+          "question": "Why are you specifically interested in our company (Traveloka)?",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_18.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 19,
+          "question": "Tell me about a time you had a significant disagreement with a colleague.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_19.wav/view?usp=sharing"
+        },
+        {
+          "positionId": 20,
+          "question": "Explain Transfer Learning to a non-technical person.",
+          "isVideoExist": true,
+          "recordedVideoUrl": "https://drive.google.com/file/d/interview_question_20.wav/view?usp=sharing"
+        }
+      ]
+    },
+    "pastReviews": [
+      {
+        "assessorProfile": {
+          "id": 47,
+          "name": "AI Assessor System",
+          "photoUrl": "xxx"
+        },
+        "decision": "PASSED",
+        "reviewedAt": "2025-12-07 08:15:14",
+        "scoresOverview": {
+          "project": 100,
+          "interview": 75.0,
+          "total": 87.5
+        },
+        "reviewChecklistResult": {
+          "project": [],
+          "interviews": {
+            "minScore": 0,
+            "maxScore": 4,
+            "scores": [
+              {
+                "id": 1,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Okay, share any specific challenges you face while working on certification and how not to overcome them. Ah, okay, actually, for the challenges, there are some challenges when I took the certificatio..."
+              },
+              {
+                "id": 2,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Can describe your experience with Transfer Learning and TensorFlow. How do you benefit from projects? Ah, okay. About Transfer Learning is actually we use existing train model from TensorFlow, for exa..."
+              },
+              {
+                "id": 3,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Wait, what is this? Describe a complex TensorFlow model you have built and the steps you took to ensure its accuracy and efficiency. Umm, uh, complex TensorFlow model you have built and steps you took..."
+              },
+              {
+                "id": 4,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Explain how you implement Dropout in, oh, okay, Dropout in, Transfer Flow, and the effect it has on training. Umm, previously I also have implemented the Dropout layer, yeah, also in the project submi..."
+              },
+              {
+                "id": 5,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Describe the process of building more conversational, more conversational, powerful image as fiction. Okay. Uh, the CNN run, right? So, uh, at the first time, uh, of course, uh, we need to make sure, ..."
+              },
+              {
+                "id": 6,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Ask about yourself and why you want to become AI engineer. My name is Muah Matrean. I came from an IT background and I have been always interested in how technology solves the real problems over time...."
+              },
+              {
+                "id": 7,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "What AI or machine learning tools or skill have you learned so far? I have learned Python as many programming languages and I have practiced using machine learning library such as TensorFlow, PyTorch,..."
+              },
+              {
+                "id": 8,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Can you explain what is what Machine Learning? Can you explain what Machine Learning is in a simple word? Machine Learning is basically a way for computers to learn from data instead of giving the com..."
+              },
+              {
+                "id": 9,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Do you usually solve problems when your model does not work well? When a model doesn't work for a well, the first thing I do is check the data, to check the data, because most of the problems usually ..."
+              },
+              {
+                "id": 10,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "What personal qualities do you have to support you in becoming AI and Engineer? I believe I have several things that match well in the role of AI Engineer. First, I learn very quick AI is a fast-movin..."
+              },
+              {
+                "id": 11,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Can you tell us about yourself and why you choose architecture as your role? My name is Farid Rasidin and I've always had a strong interest in how space influence people's brain experience. Architectu..."
+              },
+              {
+                "id": 12,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "What architectural software are you familiar with? I am familiar with several tools commonly used in architecture world. For directing, I use AutoCAD for modeling and visual decision. I work with Sket..."
+              },
+              {
+                "id": 13,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "How do you approach designing a building of space? When designing a building, I begin with by understanding the purpose of the space, the users, and the environmental context. I started with sketch an..."
+              },
+              {
+                "id": 14,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "How do you handle design that is our multi-power efficient? I believe analytics is a natural and important part of architecture development. Designing a building is a collaborative effort involving cl..."
+              },
+              {
+                "id": 15,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Voice will be select you for this architecture position. I believe I'm a strong fit for this position because I bring patience, dedication, and a strong will to learn. I'm deeply interested in archite..."
+              },
+              {
+                "id": 16,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Thanks for joining us. So, to start, can you just walk me through your resum\u00e9 and tell me a little bit about yourself? Yeah, absolutely. Thanks for helping me. So, uh, I'm a final year student at the ..."
+              },
+              {
+                "id": 17,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Thanks for looking at your projects. It clear you build a lot. Can you tell me about the single most challenging technical problem you face so far? The most challenging, yeah, I have a good one. It wa..."
+              },
+              {
+                "id": 18,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Okay, that makes sense. I have one last major question for you. You're clearly a strong candidate with a lot of options. Why are you especially interested in our company Travelocca? That's actually th..."
+              },
+              {
+                "id": 19,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "Okay, let's move on the theme rock. Tell me about a time you had a significant disagreement with a colleague. How did you handle it? Yeah, so in my capstone group, a telecom university, we had a prett..."
+              },
+              {
+                "id": 20,
+                "score": 3,
+                "reason": "4",
+                "transcript_preview": "This is great one last test. Imagine I'm not technical, I'm not an engineer. Can you explain to me in simple terms? What is transfer learning? Oh, okay. Great question. Transfer learning, right? So im..."
+              }
+            ]
+          }
+        },
+        "notes": "Automated assessment utilizing OpenAI Whisper for transcription and Google Flan-T5 for reasoning."
+      }
+    ]
+  }
+}

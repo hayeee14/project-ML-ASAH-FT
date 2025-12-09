@@ -39,8 +39,8 @@ Ensure you have **Python 3.10** or newer installed.
 
 ### 2. Clone Repository
 ```
-git clone https://github.com/hayeee14/project-ML-ASAH-FT.git
-cd project-ML-ASAH-FT
+git clone https://github.com/hayeee14/project-ML-ASAH-A25-CS358.git
+cd project-ML-ASAH-A25-CS358
 ```
 
 ### 3. Create Virtual Environment (Recommended)

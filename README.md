@@ -95,6 +95,10 @@ streamlit run app.py
 4. Wait for the AI to process (Extraction -> Transcription -> Scoring).
 5. Download the JSON Report for the result.
 
+> **First Run Notice:**
+> When running the application for the **very first time**, the system will automatically download the Whisper and Flan-T5 models (approx. 2-3 GB).
+> Please allow **10-15 minutes** for this initial setup depending on your internet connection. Subsequent runs will be instant as the models are cached locally.
+
 # Project Structure
 ```
 Capstone-Interview-AI/

@@ -74,7 +74,7 @@ This application is optimized for standard laptops using **Base Models**. Howeve
 | **Storage** | 2 GB free space | 10 GB free space |
 
 > **Note on Performance:**
-> By default, the `app.py` is configured to use **`whisper-base`** and **`flan-t5-base`** to ensure smooth performance on most laptops (CPU-only).
+> By default, the `app.py` is configured to use **`whisper-small`** and **`flan-t5-base`** to ensure smooth performance on most laptops (CPU-only).
 >
 > If you wish to use **Large Models** for higher accuracy:
 > 1. Ensure you have a dedicated NVIDIA GPU (CUDA enabled).

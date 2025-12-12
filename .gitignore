@@ -1,0 +1,29 @@
+# Python Virtual Environment 
+venv/
+env/
+.venv/
+
+# File Cache Python 
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Dataset & Media 
+Dataset/
+dataset/
+temp/
+uploads/
+*.mp4
+*.wav
+*.mp3
+*.mov
+*.avi
+*.mkv
+
+# IDE Settings 
+.vscode/
+.idea/
+
+# File OS 
+.DS_Store
+Thumbs.db

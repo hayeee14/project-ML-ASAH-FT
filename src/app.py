@@ -106,7 +106,7 @@ def load_models():
     device = "cuda" if torch.cuda.is_available() else "cpu"
     
     # Whisper untuk Transkripsi
-    whisper_model = whisper.load_model("base", device=device)
+    whisper_model = whisper.load_model("small", device=device)
     
     # Flan-T5 untuk Generasi Alasan Penilaian
     llm_pipeline = pipeline(

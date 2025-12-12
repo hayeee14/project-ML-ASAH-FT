@@ -101,7 +101,7 @@ This project utilizes state-of-the-art pre-trained models. The model weights are
 # How to Run
 1. Start the application using Streamlit:
 ```
-streamlit run app.py
+streamlit run src/app.py
 ```
 2. Your browser will automatically open http://localhost:8501.
 3. Steps to use:
@@ -119,11 +119,14 @@ streamlit run app.py
 # Project Structure
 ```
 Capstone-Interview-AI/
-├── app.py                      # Main Application Logic (Streamlit)
-├── requirements.txt            # Dependency List
-├── notebook.ipynb              # Research Notebook (Accuracy/WER Validation)
-├── final_assessment_result.json # Sample Output
-└── README.md                   # Documentation
+├── notebook/
+│   └── notebook.ipynb          # Research Notebook (Accuracy/WER Validation)
+├── src/
+│   └── app.py                  # Main Application Logic (Streamlit)
+├── requirements.txt            # Python Dependencies
+├── packages.txt                # System Dependencies (FFmpeg)
+├── final_assessment_result.json # Sample JSON Output
+└── README.md                   # Project Documentation
 ```
 # Assessment Logic (How it Works)
 1. The system uses a Hybrid Evaluation Method to ensure fairness and accuracy:
